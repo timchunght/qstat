@@ -2,3 +2,10 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+table { border-collapse: collapse; }
+table tr th, table tr td { vertical-align: top; text-align: left; 
+  padding: 3px; }
+
+
+#footer p { margin: 0; padding: 0.5em 1em; }

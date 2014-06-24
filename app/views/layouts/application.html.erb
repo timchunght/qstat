@@ -7,8 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<center>
+	<%= image_tag("berkeley-logo.png", :alt => "berkeley-logo") %>
+	<%= yield %>
 
-<%= yield %>
-
+	<p>Please email administrator if you encounter any issues: yinkaojo@berkeley.edu </p>
+	<div id="footer">
+		<center><p id="copyright">Copyright &copy; 2014 Molecular Graphics and Computation Facility, College of Chemistry, University of California, Berkeley</p>
+	</div>
 </body>
 </html>

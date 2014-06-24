@@ -1,5 +1,9 @@
 <h1>Below are the statuses of your tasks</h1>
-<%= link_to("<< Back to log in", {:action => 'index'}, :class => 'back-link') %>
+
+<div>
+  <%= link_to("Back to log in", {:action => 'index'}, :class => "btn btn-danger") %> <br>
+  <p> </p>
+</div>
 
 <div>
  
@@ -46,11 +50,11 @@
     </table>
 
 
-
+    <h1>Last updated</h1>
     <table class="listing" summary="running_tasks">
         <tr class="header">
-          <th>Last-Edited-Date</th>
-          <th>Last-Edited-Time</th>
+          <th>Date</th>
+          <th>Time</th>
           <th>Task Name</th>
         </tr>
 
