@@ -1,0 +1,81 @@
+<h1>Below are the statuses of your tasks</h1>
+<%= link_to("<< Back to log in", {:action => 'index'}, :class => 'back-link') %>
+
+<div>
+ 
+  <% if @output == "Unable to connect to #{@hostname} using #{@username} and your password input" %>
+
+    <p><%= @output %> </p>
+
+  <% elsif @output == false %>
+    <p> You have no outstanding tasks</p>
+    
+  <% else %>
+
+    <table class="listing" summary="qstat">
+      <tr class="header">
+        <th>Job ID</th>
+        <th>Prior</th>
+        <th>Name</th>
+        <th>User</th>
+        <th>State</th>
+        <th>Submit Date</th>
+        <th>Submit Time</th>
+        <th>Queue</th>
+        <th>Slots</th>
+      </tr>
+
+  	<% for i in 0..@job_id.count %>
+  	  <tr class="item">
+
+  		<td><%= @job_id[i] %></td>
+  		<td><%= @prior[i] %></td>
+  		<td><%= @name[i] %></td>
+  		<td><%= @user[i] %></td>
+  		<td><%= @state[i] %></td>
+  		<td><%= @submit_date[i] %></td>
+  		<td><%= @submit_time[i] %></td>
+  		<td><%= @queue[i] %></td>
+  		<td><%= @slots[i] %></td>
+
+  	<% end %>
+       
+        
+      </tr>
+
+    </table>
+
+
+
+    <table class="listing" summary="running_tasks">
+        <tr class="header">
+          <th>Last-Edited-Date</th>
+          <th>Last-Edited-Time</th>
+          <th>Task Name</th>
+        </tr>
+
+    <% @tasks_info.each do |task| %>
+      <% split_str = task.lines[0].split(" ")%>
+      <tr class="item">
+
+      <td><%= split_str[5]+ " " + split_str[6] %></td>
+
+      <% if split_str[7].to_i == Time.now.year.to_i %>
+        <td>Nothing has been edited yet </td>
+      <% else %>
+        <td><%= split_str[7] %></td>
+      <% end %>
+      
+      <td><%= split_str[8] %></td> 
+      
+
+    <% end %>
+         
+          
+      </tr>
+
+    </table>
+    
+  <% end %>
+ 
+  </div>

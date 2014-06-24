@@ -1,0 +1,28 @@
+<h1>log in to the server to check your tasks' statuses</h1>
+
+
+
+
+<div>
+
+
+  <%= form_for(:status, :url => {:action => 'detail'}) do |f| %>
+  <table summary="Subject form fields">
+    <tr>
+      <th>User Name</th>
+      <td><%= f.text_field(:user_name) %></td>
+    </tr>
+    <tr>
+      <th>password</th>
+      <td><%= f.password_field(:password) %></td>
+    </tr>
+    
+  </table>
+
+  <div class="form-buttons">
+      <%= submit_tag("Log in") %>
+  </div>
+
+  <% end %>
+
+  </div>
